@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="#ffff">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="가슴"
+        android:textSize="50sp"
+        android:textColor="#ffff"
+        android:background="#3F51B5"
+        android:padding="20dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:id="@+id/btnbenchpress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="벤치프레스"
+        android:textSize="30sp"
+        android:background="#673AB7"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/tvTitle" />
+
+    <Button
+        android:id="@+id/btninclinpress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="인클라인프레스"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:background="#673AB7"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/btnbenchpress" />
+
+    <Button
+        android:id="@+id/btnchestpress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="체스트프레스"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:textSize="30sp"
+        android:background="#673AB7"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/btninclinpress" />
+
+    <Button
+        android:id="@+id/btnfly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="펙 덱 플라이"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:textSize="30sp"
+        android:background="#673AB7"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/btnchestpress" />
+</RelativeLayout>

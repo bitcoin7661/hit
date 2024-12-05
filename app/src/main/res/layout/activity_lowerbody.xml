@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="#ffff">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="하체"
+        android:textSize="50sp"
+        android:textColor="#ffff"
+        android:background="#3F51B5"
+        android:padding="20dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:id="@+id/btnsquat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="스쿼트"
+        android:textSize="30sp"
+        android:background="#673AB7"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/tvTitle" />
+
+    <Button
+        android:id="@+id/btnlegcull"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="레그컬"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:background="#673AB7"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/btnsquat" />
+
+    <Button
+        android:id="@+id/btnlegExtention"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="레그익스텐션"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:textSize="30sp"
+        android:background="#673AB7"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/btnlegcull" />
+
+    <Button
+        android:id="@+id/btninlegpress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="레그프레스"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:textSize="30sp"
+        android:background="#673AB7"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/btnlegExtention" />
+</RelativeLayout>

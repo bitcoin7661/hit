@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="#ffffff">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="운동 부위"
+        android:textSize="40sp"
+        android:textColor="#ffff"
+        android:background="#3F51B5"
+        android:padding="16dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitle"
+        android:layout_alignParentStart="true"
+        android:layout_margin="8dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="141dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#673AB7"
+        android:text="등"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnChest"
+        android:layout_height="wrap_content"
+        android:text="가슴"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:background="#673AB7"
+        android:layout_margin="8dp"
+        android:layout_below="@id/btnBack"
+        android:layout_width="match_parent" />
+
+    <Button
+        android:id="@+id/btnlowerbody"
+        android:layout_height="wrap_content"
+        android:text="하체"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:background="#673AB7"
+        android:layout_margin="8dp"
+        android:layout_below="@id/btnChest"
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent" />
+
+    <Button
+        android:id="@+id/btnArms"
+        android:layout_height="wrap_content"
+        android:text="팔"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:background="#673AB7"
+        android:layout_margin="8dp"
+        android:layout_below="@id/btnlowerbody"
+        android:layout_width="match_parent" />
+
+    <Button
+        android:id="@+id/btnShoulder"
+        android:layout_height="wrap_content"
+        android:text="어깨"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:background="#673AB7"
+        android:layout_margin="8dp"
+        android:layout_below="@id/btnArms"
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent" />
+
+    <Button
+        android:id="@+id/btnConnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bluetooth 연결"
+        android:background="#673AB7"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/btnShoulder" />
+
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/activity_main.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#3F51B5"> <!-- 주황색 배경 -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HIT"
+        android:textSize="32sp"
+        android:textColor="#ffff"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnHealthCare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="헬스케어 기능"
+        android:textSize="30sp"
+        android:padding="25dp"
+        android:layout_margin="10dp"
+        android:background="#673AB7"
+        android:textColor="#FFEB3B" />
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="프로필"
+        android:textSize="30sp"
+        android:padding="25dp"
+        android:layout_margin="10dp"
+        android:background="#673AB7"
+        android:textColor="#FFEB3B"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnDiet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:padding="25dp"
+        android:layout_margin="10dp"
+        android:text="식단"
+        android:background="#673AB7"
+        android:textColor="#FFEB3B"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnPlanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:padding="25dp"
+        android:layout_margin="10dp"
+        android:text="플래너"
+        android:background="#673AB7"
+        android:textColor="#FFEB3B"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="이벤트"
+        android:padding="25dp"
+        android:layout_margin="10dp"
+        android:background="#673AB7"
+        android:textColor="#FFEB3B"
+        android:layout_marginTop="8dp"/>
+
+
+</LinearLayout>
