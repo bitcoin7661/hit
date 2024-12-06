@@ -1,31 +1,28 @@
 package com.example.hit33
 
-import DataCalculator
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothDevice
-import android.bluetooth.BluetoothSocket
+import android.bluetooth.*
 import android.content.Context
 import android.content.pm.PackageManager
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import java.io.InputStream
-import java.io.OutputStream
-import java.util.*
+import java.util.UUID
 
 class BluetoothManager(private val context: Context, private val dataReceiver: DataReceiver) {
 
+    interface DataReceiver {
+        fun onDataReceived(data: List<String>)
+    }
+
     private lateinit var bluetoothAdapter: BluetoothAdapter
-    private lateinit var bluetoothSocket: BluetoothSocket
-    private lateinit var inputStream: InputStream
-    private lateinit var outputStream: OutputStream
+    private var bluetoothGatt: BluetoothGatt? = null
 
     private val deviceAddress = "2c:cf:67:97:c8:4b" // 블루투스 MAC 주소
 
     companion object {
-        private const val MY_UUID = "00001101-0000-1000-8000-00805F9B34FB" // SPP UUID
+        private val MY_UUID = UUID.fromString("00001800-0000-1000-8000-00805f9b34fb") // GATT UUID 예시
         private const val REQUEST_CODE = 1 // 권한 요청 코드
     }
 
@@ -65,28 +62,23 @@ class BluetoothManager(private val context: Context, private val dataReceiver: D
             return
         }
 
-        // MAC 주소가 올바르게 포맷되어 있는지 확인하는 정규 표현식
-        val macAddressRegex = Regex("([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})")
-        if (!macAddressRegex.matches(deviceAddress)) {
-            Toast.makeText(context, "잘못된 MAC 주소 형식입니다.", Toast.LENGTH_SHORT).show()
+        // 연결 전에 권한이 있는지 다시 한 번 확인합니다.
+        if (!hasBluetoothPermission()) {
+            Toast.makeText(context, "Bluetooth 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
             return
         }
 
         val device: BluetoothDevice? = bluetoothAdapter.getRemoteDevice(deviceAddress)
-
         if (device == null) {
-            // 장치가 존재하지 않을 때 처리
             Toast.makeText(context, "장치를 찾을 수 없습니다: $deviceAddress", Toast.LENGTH_SHORT).show()
             return
         }
 
         try {
-            bluetoothSocket = device.createRfcommSocketToServiceRecord(UUID.fromString(MY_UUID))
-            bluetoothSocket.connect()
-            initializeStreams()
-            receiveData()
-
-            Toast.makeText(context, "Bluetooth 연결 성공!", Toast.LENGTH_SHORT).show()
+            bluetoothGatt = device.connectGatt(context, false, gattCallback)
+        } catch (e: SecurityException) {
+            e.printStackTrace()
+            Toast.makeText(context, "Bluetooth 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
             e.printStackTrace()
             Toast.makeText(context, "Bluetooth 연결 실패: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -94,6 +86,25 @@ class BluetoothManager(private val context: Context, private val dataReceiver: D
     }
 
 
+    // GATT Callback
+    private val gattCallback = object : BluetoothGattCallback() {
+
+        override fun onConnectionStateChange(gatt: BluetoothGatt?, status: Int, newState: Int) {
+            if (newState == BluetoothProfile.STATE_CONNECTED) {
+                Toast.makeText(context, "연결 성공", Toast.LENGTH_SHORT).show()
+            } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
+                Toast.makeText(context, "연결 실패", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
+            // 서비스 발견 시 로직 (필요 시 추가 구현)
+        }
+
+        override fun onCharacteristicRead(gatt: BluetoothGatt?, characteristic: BluetoothGattCharacteristic?, status: Int) {
+            // 특성 읽기 시 로직 (필요 시 추가 구현)
+        }
+    }
 
     // Bluetooth 권한 확인
     private fun hasBluetoothPermission(): Boolean {
@@ -105,64 +116,14 @@ class BluetoothManager(private val context: Context, private val dataReceiver: D
         return bluetoothAdapter != null && bluetoothAdapter.isEnabled
     }
 
-    // 입력 및 출력 스트림 초기화
-    private fun initializeStreams() {
-        inputStream = bluetoothSocket.inputStream
-        outputStream = bluetoothSocket.outputStream
-    }
-
-    // 데이터 수신 메소드
-    private fun receiveData() {
-        Thread {
-            while (true) {
-                try {
-                    val buffer = ByteArray(1024)
-                    val bytes = inputStream.read(buffer)
-
-                    val receivedData = String(buffer, 0, bytes).trim()
-                    val dataParts = receivedData.split(",") // 자이로와 가속도 데이터가 구분되어 있다고 가정.
-
-                    // 데이터 가공 부분
-                    if (dataParts.size >= 6) { // 자이로 및 가속도 데이터가 적어도 6개 있어야 한다고 가정.
-                        val calculator = DataCalculator(context)
-                        val results = calculator.calculate(dataParts) // 계산 후 결과 얻기
-
-                        // 가공된 데이터 전달
-                        dataReceiver.onDataReceived(results) // EquipmentDetailActivity에 결과 전달
-                    }
-                } catch (e: Exception) {
-                    e.printStackTrace() // 예외 발생 시 로그 출력
-                    break
-                }
-            }
-        }.start()
-    }
-
-
-
     // Bluetooth 연결 종료 메소드
+    @SuppressLint("MissingPermission")
     fun closeConnection() {
         try {
-            inputStream.close()
-            outputStream.close()
-            bluetoothSocket.close()
+            bluetoothGatt?.close()
+            bluetoothGatt = null
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
-
-    fun sendData(data: List<String>) {
-        try {
-            val message = data.joinToString(",") // 데이터를 콤마로 구분하여 문자열로 변환
-            outputStream.write(message.toByteArray()) // Bluetooth로 데이터 전송
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(context, "데이터 전송 실패: ${e.message}", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    // 데이터 수신 인터페이스
-    interface DataReceiver {
-        fun onDataReceived(data: List<String>)
     }
 }

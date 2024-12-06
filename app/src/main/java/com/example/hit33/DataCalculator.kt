@@ -1,11 +1,15 @@
+package com.example.hit33
+
 import android.content.Context
 import android.media.AudioAttributes
 import android.media.SoundPool
 import com.example.hit33.R
+import kotlin.math.sqrt
 
 class DataCalculator(private val context: Context) {
 
     private var movementCount = 0 // 운동 횟수 계산
+    private var targetCount = 0 // 목표 횟수
     private lateinit var soundPool: SoundPool
     private var notificationSound: Int = 0
 
@@ -32,7 +36,7 @@ class DataCalculator(private val context: Context) {
      */
     fun calculate(data: List<String>): List<String> {
         if (data.size < 6) {
-            throw IllegalArgumentException("데이터 항목이 부족합니다.")
+            throw IllegalArgumentException("데이터 항목이 부족합니다. 현재 수신된 항목 수: ${data.size}")
         }
 
         // 데이터 변환
@@ -60,14 +64,14 @@ class DataCalculator(private val context: Context) {
 
     // 이동 거리 계산
     private fun calculateDistance(accelX: Double, accelY: Double, accelZ: Double): Double {
-        // 가속도를 거리로 변환 (여기서는 간단히 예를 들기 위해 적당한 계수를 사용)
-        return Math.sqrt(accelX * accelX + accelY * accelY + accelZ * accelZ) // 예를 사용한 거리 단위
+        // 가속도를 거리로 변환
+        return sqrt(accelX * accelX + accelY * accelY + accelZ * accelZ) // 예를 사용한 거리 단위
     }
 
     // 이동 속도 계산
     private fun calculateSpeed(accelX: Double, accelY: Double, accelZ: Double): Double {
-        // 가속도를 속도로 변환 (적절한 시간 간격을 가정해야 함)
-        return Math.sqrt(accelX * accelX + accelY * accelY + accelZ * accelZ) // 예를 사용한 속도 단위
+        // 가속도를 속도로 변환 (적절한 시간 간격을 고려해야 함)
+        return sqrt(accelX * accelX + accelY * accelY + accelZ * accelZ) // 예를 사용한 속도 단위
     }
 
     // 운동 횟수 업데이트
@@ -75,6 +79,10 @@ class DataCalculator(private val context: Context) {
         if (currentDistance in 50.0..100.0) {
             movementCount++ // 운동 횟수 증가
             playNotification(1) // 알림 1회 발생
+        }
+        if (movementCount >= targetCount) {
+            // 목표 횟수에 도달하면 알림 발생
+            playNotification(2) // 목표 달성을 알리는 알림
         }
     }
 
@@ -85,7 +93,8 @@ class DataCalculator(private val context: Context) {
         }
     }
 
+    // 목표 횟수 설정 메소드
     fun setTargetCount(targetCount: Int) {
-
+        // 필요한 경우 목표 횟수 설정 로직 추가
     }
 }

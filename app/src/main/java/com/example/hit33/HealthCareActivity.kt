@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hit33.R
-import com.example.hit33.BluetoothManager
 
 class HealthCareActivity : AppCompatActivity(), BluetoothManager.DataReceiver {
 

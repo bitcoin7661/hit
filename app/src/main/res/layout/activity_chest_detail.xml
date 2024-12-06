@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="#ffffff">
+    android:background="#3F51B5">
+
 
     <TextView
         android:id="@+id/tvTitle"
@@ -12,17 +13,17 @@
         android:text="벤치프레스"
         android:textSize="24sp"
         android:textColor="#FFFFFF"
-        android:background="#3F51B5"
+        android:background="#009688"
         android:padding="16dp"
         android:layout_margin="10dp"
         android:gravity="center" />
 
     <TextView
         android:id="@+id/tvDistance"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvTitle"
-        android:layout_margin="15dp"
+        android:layout_margin="5dp"
         android:background="#CDDC39"
         android:padding="16dp"
         android:text="가동범위: Ncm"
@@ -30,43 +31,46 @@
 
 
     <EditText
-        android:id="@+id/etTargetMinDistance"
+        android:id="@+id/btnmoving"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvTitle"
-        android:layout_alignParentEnd="true"
+        android:layout_below="@id/tvSpeed"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="0dp"
-        android:layout_toEndOf="@id/tvDistance"
+        android:layout_marginTop="5dp"
         android:background="#4CAF50"
-        android:hint="목표최소가동범위:입력(cm) "
         android:inputType="numberDecimal"
         android:padding="16dp"
+        android:text="가동범위:30cm"
         android:textSize="15sp" />
 
-    <EditText
-        android:id="@+id/etTargetMaxDistance"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnIncrease"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etTargetMinDistance"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="0dp"
-        android:layout_toEndOf="@id/tvDistance"
-        android:background="#4CAF50"
-        android:hint="목표최대가동범위:입력(cm) "
-        android:inputType="numberDecimal"
-        android:padding="16dp"
-        android:textSize="15sp" />
+        android:text="+"
+        android:textSize="40sp"
+        android:layout_below="@id/btnmoving"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:id="@+id/btnDecrease"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textSize="40sp"
+        android:layout_toEndOf="@id/btnIncrease"
+        android:layout_below="@id/btnmoving"
+        android:layout_marginTop="10dp"
+        />
+
+
 
     <TextView
         android:id="@+id/tvCount"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvDistance"
-        android:layout_margin="15dp"
+        android:layout_margin="5dp"
         android:background="#CDDC39"
         android:padding="16dp"
         android:text="횟수:N개"
@@ -75,39 +79,50 @@
 
     <EditText
         android:id="@+id/etTargetCount"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etTargetMaxDistance"
+        android:layout_below="@id/btnIncrease"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="25dp"
-        android:layout_toEndOf="@id/tvCount"
-        android:background="#FF9800"
+        android:layout_marginTop="10dp"
+        android:background="#4CAF50"
         android:hint="목표횟수:입력"
         android:inputType="numberDecimal"
         android:padding="16dp"
-        android:textSize="15sp" />
+        android:textColor="#020000"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tvSpeed"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvCount"
-        android:layout_margin="15dp"
+        android:layout_below="@id/tvsetcount"
+        android:layout_margin="5dp"
         android:background="#CDDC39"
         android:padding="16dp"
         android:text="운동 속도: N초"
         android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/tvsetcount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCount"
+        android:layout_margin="5dp"
+        android:background="#CDDC39"
+        android:padding="16dp"
+        android:text="세트 수: N세트"
+        android:textSize="20sp" />
 
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="저 장"
+        android:layout_below="@id/etTargetCount"
+        android:layout_margin="5dp"
         android:background="#00796B"
-        android:layout_marginTop="16dp"
-        android:layout_below="@id/tvSpeed" />
+        android:text="저 장"
+        android:textSize="30sp" />
 
 
 </RelativeLayout>
