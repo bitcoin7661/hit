@@ -1,96 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:background="#ffffff">
+    android:background="@color/background">
 
-    <TextView
-        android:id="@+id/tvTitle"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="운동 부위"
-        android:textSize="40sp"
-        android:textColor="#ffff"
-        android:background="#3F51B5"
-        android:padding="16dp"
-        android:gravity="center"
-        android:layout_alignParentTop="true" />
+        android:background="@color/card_healthcare">
 
-    <Button
-        android:id="@+id/btnBack"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="운동 부위"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvTitle"
-        android:layout_alignParentStart="true"
-        android:layout_margin="8dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="141dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="#673AB7"
-        android:text="등"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <Button
-        android:id="@+id/btnChest"
-        android:layout_height="wrap_content"
-        android:text="가슴"
-        android:textSize="30sp"
-        android:textColor="@color/white"
-        android:background="#673AB7"
-        android:layout_margin="8dp"
-        android:layout_below="@id/btnBack"
-        android:layout_width="match_parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnlowerbody"
-        android:layout_height="wrap_content"
-        android:text="하체"
-        android:textSize="30sp"
-        android:textColor="@color/white"
-        android:background="#673AB7"
-        android:layout_margin="8dp"
-        android:layout_below="@id/btnChest"
-        android:layout_alignParentStart="true"
-        android:layout_width="match_parent" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnBack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/card_back">
 
-    <Button
-        android:id="@+id/btnArms"
-        android:layout_height="wrap_content"
-        android:text="팔"
-        android:textSize="30sp"
-        android:textColor="@color/white"
-        android:background="#673AB7"
-        android:layout_margin="8dp"
-        android:layout_below="@id/btnlowerbody"
-        android:layout_width="match_parent" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="등"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:padding="20dp"
+                    android:gravity="center"/>
+            </com.google.android.material.card.MaterialCardView>
 
-    <Button
-        android:id="@+id/btnShoulder"
-        android:layout_height="wrap_content"
-        android:text="어깨"
-        android:textSize="30sp"
-        android:textColor="@color/white"
-        android:background="#673AB7"
-        android:layout_margin="8dp"
-        android:layout_below="@id/btnArms"
-        android:layout_alignParentStart="true"
-        android:layout_width="match_parent" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnChest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/card_chest">
 
-    <Button
-        android:id="@+id/btnConnect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bluetooth 연결"
-        android:background="#673AB7"
-        android:layout_marginTop="16dp"
-        android:layout_below="@id/btnShoulder" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="가슴"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:padding="20dp"
+                    android:gravity="center"/>
+            </com.google.android.material.card.MaterialCardView>
 
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnlowerbody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/card_lowerbody">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="하체"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:padding="20dp"
+                    android:gravity="center"/>
+            </com.google.android.material.card.MaterialCardView>
 
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnArms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/card_arms">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="팔"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:padding="20dp"
+                    android:gravity="center"/>
+            </com.google.android.material.card.MaterialCardView>
 
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnShoulder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/card_shoulder">
 
-</RelativeLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="어깨"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:padding="20dp"
+                    android:gravity="center"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnConnect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bluetooth 연결"
+                    android:textSize="14sp"
+                    app:cornerRadius="8dp"
+                    android:paddingHorizontal="16dp"
+                    app:backgroundTint="@color/card_healthcare"/>
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="연결 상태: 연결되지 않음"
+                    android:textColor="@color/status_text"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
