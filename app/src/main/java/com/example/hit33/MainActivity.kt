@@ -1,23 +1,74 @@
 package com.example.hit33
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.hit33.R
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.google.android.material.card.MaterialCardView
 
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        private const val PERMISSION_REQUEST_CODE = 1
+        private val REQUIRED_PERMISSIONS = arrayOf(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<Button>(R.id.btnHealthCare).setOnClickListener { openHealthCare() }
-//        findViewById<Button>(R.id.btnProfile).setOnClickListener { openProfile() }
-//        findViewById<Button>(R.id.btnDiet).setOnClickListener { openDiet() }
-//        findViewById<Button>(R.id.btnPlanner).setOnClickListener { openPlanner() }
-//        findViewById<Button>(R.id.btnEvent).setOnClickListener { openEvent() }
-//        findViewById<Button>(R.id.btnRecord).setOnClickListener { openRecord() }
+        // 권한 체크 및 요청
+        if (!hasPermissions()) {
+            requestPermissions()
+        }
+
+        findViewById<MaterialCardView>(R.id.cardHealthCare).setOnClickListener{ openHealthCare() }
+//        findViewById<MaterialCardView>(R.id.cardProfile).setOnClickListener
+//        findViewById<MaterialCardView>(R.id.cardDiet).setOnClickListener
+//        findViewById<MaterialCardView>(R.id.cardPlanner).setOnClickListener
+//        findViewById<MaterialCardView>(R.id.cardEvent).setOnClickListener
+
+    }
+
+    private fun hasPermissions(): Boolean {
+        return REQUIRED_PERMISSIONS.all { permission ->
+            ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
+        }
+    }
+
+    private fun requestPermissions() {
+        ActivityCompat.requestPermissions(
+            this,
+            REQUIRED_PERMISSIONS,
+            PERMISSION_REQUEST_CODE
+        )
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        when (requestCode) {
+            PERMISSION_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
+                    Toast.makeText(this, "권한이 승인되었습니다.", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "위치 권한이 필요합니다.", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
     }
 
     private fun openHealthCare() {
