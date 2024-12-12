@@ -8,8 +8,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-//등
-class EquipmentDetailActivity : AppCompatActivity() {
+//등 운동기구 기능
+class EquipmentBackDetailActivity : AppCompatActivity() {
 
     private lateinit var tvDistance: TextView
     private lateinit var etMoving: EditText // 가동범위 표시 EditText
@@ -19,7 +19,7 @@ class EquipmentDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_equipment_detail)
+        setContentView(R.layout.activity_back_detail)
 
         // UI 요소 초기화
         tvDistance = findViewById(R.id.tvDistance)

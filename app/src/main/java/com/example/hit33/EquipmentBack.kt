@@ -23,7 +23,7 @@ class EquipmentBack : AppCompatActivity() {
 
 
     private fun openInfo(equipment: String) {
-        val intent = Intent(this, EquipmentDetailActivity::class.java)
+        val intent = Intent(this, EquipmentBackDetailActivity::class.java)
         intent.putExtra("EQUIPMENT_NAME", equipment) // 선택한 운동 기구 이름을 전달
         startActivity(intent) // Activity 실행
     }
