@@ -37,7 +37,7 @@
 
         <activity android:name=".HealthCareActivity"></activity>
         <activity android:name=".EquipmentBack"></activity>
-        <activity android:name=".EquipmentBackDetailActivity"></activity>
+        <activity android:name=".EquipmentDetailActivity"></activity>
         <activity android:name=".EquipmentChest"></activity>
         <activity android:name=".EquipmentlowerBody"></activity>
 <!--        <activity android:name=".LowerBodyDetailActivity"></activity>-->

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExerciseRecordActivity">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 제목 -->
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="운동 기록"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- 날짜와 메모를 표시하는 부분 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
+
+            <!-- 날짜 표시 -->
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="날짜"
+                android:textSize="18sp"
+                android:padding="8dp" />
+
+            <!-- 메모 표시 -->
+            <TextView
+                android:id="@+id/memoTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="메모"
+                android:textSize="18sp"
+                android:padding="8dp" />
+        </LinearLayout>
+
+        <!-- 세트 입력 -->
+        <EditText
+            android:id="@+id/setEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="세트"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:backgroundTint="#CCCCCC"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 횟수 입력 -->
+        <EditText
+            android:id="@+id/countEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="횟수"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:backgroundTint="#CCCCCC"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 중량 입력 -->
+        <EditText
+            android:id="@+id/weightEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="중량 (kg)"
+            android:inputType="numberDecimal"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:backgroundTint="#CCCCCC"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 운동 시간 입력 -->
+        <EditText
+            android:id="@+id/timeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="운동 시간 (분)"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:backgroundTint="#CCCCCC"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

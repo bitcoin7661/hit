@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlannerActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="운동 플래너"
+            android:textSize="20sp"
+            android:background="#007F00"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:padding="8dp"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- 주간/월간 플래너 버튼 -->
+        <Button
+            android:id="@+id/weekMonthPlannerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="주간/월간 플래너"
+            android:backgroundTint="#A5D6A7"
+            android:layout_marginTop="16dp" />
+
+        <!-- 기록 / 변화 버튼 -->
+        <Button
+            android:id="@+id/recordChangeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="기록 / 변화"
+            android:backgroundTint="#A5D6A7"
+            android:layout_marginTop="16dp" />
+
+        <!-- 개인 커뮤니티 버튼 -->
+        <Button
+            android:id="@+id/communityButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#A5D6A7"
+            android:text="개인 커뮤니티" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
