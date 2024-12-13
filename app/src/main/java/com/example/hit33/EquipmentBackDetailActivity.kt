@@ -53,7 +53,7 @@ class EquipmentBackDetailActivity : AppCompatActivity() {
         }
 
         // 저장 기능 버튼 클릭 리스너
-        findViewById<Button>(R.id.btnSave).setOnClickListener {
+        findViewById<Button>(R.id.btnStart).setOnClickListener {
             saveSettings() // 사용자가 설정한 목표 값을 저장
         }
     }

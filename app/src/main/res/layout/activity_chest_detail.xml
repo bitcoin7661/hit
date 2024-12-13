@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="#3F51B5">
+    android:background="#FFFFFF">
 
 
     <TextView
@@ -11,12 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="벤치프레스"
-        android:textSize="24sp"
-        android:textColor="#FFFFFF"
-        android:background="#009688"
+        android:textSize="30sp"
+        android:textColor="@color/black"
         android:padding="16dp"
         android:layout_margin="10dp"
-        android:gravity="center" />
+        android:gravity="center"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tvDistance"
@@ -24,10 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvTitle"
         android:layout_margin="5dp"
-        android:background="#CDDC39"
+        android:background="#4CAF50"
         android:padding="16dp"
         android:text="가동범위: Ncm"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
 
 
     <EditText
@@ -37,7 +39,7 @@
         android:layout_below="@id/tvSpeed"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        android:background="#4CAF50"
+        android:background="#009688"
         android:inputType="numberDecimal"
         android:padding="16dp"
         android:text="가동범위:30cm"
@@ -48,7 +50,8 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="+"
-        android:textSize="40sp"
+        android:backgroundTint="@color/plusbtn"
+        android:textSize="25sp"
         android:layout_below="@id/btnmoving"
         android:layout_marginTop="10dp"
         android:layout_alignParentStart="true" />
@@ -57,7 +60,8 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="-"
-        android:textSize="40sp"
+        android:textSize="25sp"
+        android:backgroundTint="@color/minusbtn"
         android:layout_toEndOf="@id/btnIncrease"
         android:layout_below="@id/btnmoving"
         android:layout_marginTop="10dp"
@@ -71,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvDistance"
         android:layout_margin="5dp"
-        android:background="#CDDC39"
+        android:background="#8BC34A"
         android:padding="16dp"
         android:text="횟수:N개"
         android:textSize="20sp" />
@@ -84,7 +88,7 @@
         android:layout_below="@id/btnIncrease"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:background="#4CAF50"
+        android:background="#009688"
         android:hint="목표횟수:입력"
         android:inputType="numberDecimal"
         android:padding="16dp"
@@ -97,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvsetcount"
         android:layout_margin="5dp"
-        android:background="#CDDC39"
+        android:background="#8BC34A"
         android:padding="16dp"
         android:text="운동 속도: N초"
         android:textSize="20sp" />
@@ -108,7 +112,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvCount"
         android:layout_margin="5dp"
-        android:background="#CDDC39"
+        android:background="#4CAF50"
         android:padding="16dp"
         android:text="세트 수: N세트"
         android:textSize="20sp" />
@@ -120,9 +124,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/etTargetCount"
         android:layout_margin="5dp"
-        android:background="#00796B"
+        android:backgroundTint="#8BC34A"
         android:text="저 장"
         android:textSize="30sp" />
 
 
 </RelativeLayout>
+
