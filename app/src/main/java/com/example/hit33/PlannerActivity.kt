@@ -24,8 +24,6 @@ class PlannerActivity : AppCompatActivity() {
             val intent = Intent(this, WeekMonthPlannerActivity::class.java)
             startActivity(intent)
         }
-
-
     }
 }
 
