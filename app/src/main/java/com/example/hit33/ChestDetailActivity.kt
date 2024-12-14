@@ -1,77 +1,152 @@
 package com.example.hit33
 
+import android.annotation.SuppressLint
+import android.bluetooth.BluetoothDevice
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-//등
-class ChestDetailActivity : AppCompatActivity() {
+class ChestDetailActivity : AppCompatActivity(), BluetoothLEManager.DataReceiver {
 
     private lateinit var tvDistance: TextView
-    private lateinit var etMoving: EditText // 가동범위 표시 EditText
-    private lateinit var tvTitle: TextView // 운동 기구 이름을 표시할 TextView
-    private var targetDistance: Int = 30 // 초기 가동 범위
-    private lateinit var dataCalculator: DataCalculator // DataCalculator 인스턴스
+    private lateinit var tvSpeed: TextView
+    private lateinit var tvCount: TextView
+    private lateinit var etTargetMinDistance: EditText
+    private lateinit var etTargetMaxDistance: EditText
+    private lateinit var etTargetCount: EditText
+    private lateinit var bluetoothLEManager: BluetoothLEManager
+    private lateinit var tvTitle: TextView
 
+    private var targetMinDistance: Double = 0.0
+    private var targetMaxDistance: Double = 0.0
+    private var targetCount: Int = 0
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_equipment_detail)
 
         // UI 요소 초기화
-        tvDistance = findViewById(R.id.tvDistance)
-        etMoving = findViewById(R.id.btnmoving)
-        tvTitle = findViewById(R.id.tvTitle) // 운동 기구 이름을 표시할 TextView 초기화
+        initializeViews()
 
         // Intent로부터 운동 기구 이름 가져오기
         val equipmentName = intent.getStringExtra("EQUIPMENT_NAME")
-        Log.d("EquipmentDetailActivity", "Received EQUIPMENT_NAME: $equipmentName") // 로그 추가
+        tvTitle.text = equipmentName ?: "운동 기구"
 
-        // 제목 설정
-        tvTitle.text = equipmentName ?: "운동 기구" // 제목을 운동 기구 이름으로 설정, null이면 기본값 설정
-        etMoving.setText("$targetDistance cm") // 가동 범위 초기화
-
-        // DataCalculator 인스턴스 초기화
-        dataCalculator = DataCalculator(this)
-
-        // 버튼 설정
-        findViewById<Button>(R.id.btnIncrease).setOnClickListener {
-            targetDistance += 1 // 1cm 증가
-            updateDistanceText() // UI 업데이트
-        }
-
-        findViewById<Button>(R.id.btnDecrease).setOnClickListener {
-            if (targetDistance > 0) { // 최소 0cm로 제한
-                targetDistance -= 1 // 1cm 감소
-                updateDistanceText() // UI 업데이트
-            } else {
-                Toast.makeText(this, "가동 범위는 0보다 작을 수 없습니다.", Toast.LENGTH_SHORT).show()
-            }
-        }
+        // BluetoothLEManager 초기화
+        bluetoothLEManager = BluetoothLEManager(this, this)
 
         // 저장 기능 버튼 클릭 리스너
         findViewById<Button>(R.id.btnSave).setOnClickListener {
-            saveSettings() // 사용자가 설정한 목표 값을 저장
+            saveSettings()
         }
     }
 
-    // 현재 거리 텍스트 업데이트 메소드
-    private fun updateDistanceText() {
-        etMoving.setText("$targetDistance cm") // EditText에 현재 거리 업데이트
+    private fun initializeViews() {
+        tvTitle = findViewById(R.id.tvTitle)
+        tvDistance = findViewById(R.id.tvDistance)
+        tvSpeed = findViewById(R.id.tvSpeed)
+        tvCount = findViewById(R.id.tvCount)
+        etTargetMinDistance = findViewById(R.id.etTargetMinDistance)
+        etTargetMaxDistance = findViewById(R.id.etTargetMaxDistance)
+        etTargetCount = findViewById(R.id.etTargetCount)
     }
 
-    // 사용자 설정 저장 메소드
+    // BLE 데이터 수신 구현
+    override fun onDataReceived(data: List<String>) {
+        runOnUiThread {
+            if (data.size >= 3) {
+                updateUI(data)
+                checkTargets(data)
+            }
+        }
+    }
+
+    // BLE 장치 발견 콜백 구현
+    override fun onDeviceFound(device: BluetoothDevice) {
+        // 이 액티비티에서는 새로운 장치 검색을 하지 않으므로 구현하지 않음
+    }
+
+    private fun updateUI(results: List<String>) {
+        try {
+            tvDistance.text = "${results[0]} cm" // 이동 거리
+            tvSpeed.text = "${results[1]} cm/s"  // 이동 속도
+            tvCount.text = "${results[2]} 회"    // 운동 횟수
+        } catch (e: Exception) {
+            Toast.makeText(this, "데이터 형식이 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun checkTargets(results: List<String>) {
+        try {
+            val currentDistance = results[0].toDoubleOrNull() ?: 0.0
+            val currentCount = results[2].toIntOrNull() ?: 0
+
+            // 목표 거리 체크
+            if (currentDistance < targetMinDistance) {
+                Toast.makeText(this, "운동 거리가 너무 짧습니다!", Toast.LENGTH_SHORT).show()
+            } else if (currentDistance > targetMaxDistance) {
+                Toast.makeText(this, "운동 거리가 너무 깁니다!", Toast.LENGTH_SHORT).show()
+            }
+
+            // 목표 횟수 달성 체크
+            if (currentCount >= targetCount && targetCount > 0) {
+                Toast.makeText(this, "목표 운동 횟수를 달성했습니다!", Toast.LENGTH_LONG).show()
+            }
+        } catch (e: Exception) {
+            // 에러 처리
+        }
+    }
+
     private fun saveSettings() {
-        Toast.makeText(this, "설정이 저장되었습니다: 가동범위 $targetDistance cm", Toast.LENGTH_SHORT).show()
+        val minDistanceInput = etTargetMinDistance.text.toString()
+        val maxDistanceInput = etTargetMaxDistance.text.toString()
+        val countInput = etTargetCount.text.toString()
+
+        if (minDistanceInput.isNotEmpty() && maxDistanceInput.isNotEmpty() && countInput.isNotEmpty()) {
+            try {
+                targetMinDistance = minDistanceInput.toDouble()
+                targetMaxDistance = maxDistanceInput.toDouble()
+                targetCount = countInput.toInt()
+
+                // 설정값 검증
+                if (targetMinDistance >= targetMaxDistance) {
+                    Toast.makeText(this, "최소 거리는 최대 거리보다 작아야 합니다.", Toast.LENGTH_SHORT).show()
+                    return
+                }
+
+                if (targetCount <= 0) {
+                    Toast.makeText(this, "목표 횟수는 0보다 커야 합니다.", Toast.LENGTH_SHORT).show()
+                    return
+                }
+
+                // 설정값을 BLE 장치로 전송 (선택적)
+                val settings = listOf(
+                    targetMinDistance.toString(),
+                    targetMaxDistance.toString(),
+                    targetCount.toString()
+                )
+                bluetoothLEManager.sendData(settings)
+
+                Toast.makeText(this,
+                    "목표가 설정되었습니다.\n" +
+                            "목표 이동 거리: $targetMinDistance cm - $targetMaxDistance cm\n" +
+                            "목표 운동 횟수: $targetCount 회",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } catch (e: NumberFormatException) {
+                Toast.makeText(this, "올바른 숫자를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            Toast.makeText(this, "모든 필드를 입력해야 합니다.", Toast.LENGTH_SHORT).show()
+        }
     }
 
-    // Bluetooth 데이터 처리 메소드
-    fun onBluetoothDataReceived(data: List<String>) {
-        val results = dataCalculator.calculate(data) // 가공된 데이터 계산
-        tvDistance.text = results[0] // 이동 거리 업데이트
-        // 다른 UI 업데이트를 여기에 추가
+    override fun onDestroy() {
+        super.onDestroy()
+        bluetoothLEManager.closeConnection()
     }
 }

@@ -2,4 +2,21 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background">#F5F9F6</color>
+    <color name="primary_text">#1B5E20</color>
+
+    <!-- Card Colors - Green Gradient Theme -->
+    <color name="card_healthcare">#2E7D32</color>
+    <color name="card_profile">#388E3C</color>
+    <color name="card_diet">#43A047</color>
+    <color name="card_planner">#4CAF50</color>
+    <color name="card_event">#66BB6A</color>
+
+    <!-- Healthcare Activity Colors -->
+    <color name="card_back">#43A047</color>
+    <color name="card_chest">#388E3C</color>
+    <color name="card_lowerbody">#2E7D32</color>
+    <color name="card_arms">#1B5E20</color>
+    <color name="card_shoulder">#4CAF50</color>
+    <color name="status_text">#666666</color>
 </resources>
