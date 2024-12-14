@@ -1,68 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="20dp"
-    android:background="#ffff">
+    android:background="#F5F5F5">
 
+    <!-- 제목 -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="가슴"
-        android:textSize="50sp"
-        android:textColor="#ffff"
-        android:background="#3F51B5"
-        android:padding="20dp"
+        android:text="가슴 운동"
+        android:textSize="24sp"
+        android:textColor="#3F51B5"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
+        android:layout_margin="10dp"
         android:layout_alignParentTop="true" />
 
+    <!-- 풀업 버튼 -->
     <Button
         android:id="@+id/btnbenchpress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="벤치프레스"
-        android:textColor="#ffff"
-        android:textSize="30sp"
-        android:background="#673AB7"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#4CAF50"
         android:layout_margin="10dp"
-        android:padding="20dp"
+        android:elevation="4dp"
+        android:padding="16dp"
         android:layout_marginTop="8dp"
         android:layout_below="@id/tvTitle" />
 
+    <!-- 랫풀다운 버튼 -->
     <Button
         android:id="@+id/btninclinpress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="인클라인프레스"
-        android:textSize="30sp"
+        android:text="인클라인벤치프레스"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#4CAF50"
         android:layout_margin="10dp"
-        android:padding="20dp"
-        android:background="#673AB7"
+        android:elevation="4dp"
+        android:padding="16dp"
         android:layout_marginTop="8dp"
         android:layout_below="@id/btnbenchpress" />
 
+    <!-- 시티드로우 버튼 -->
     <Button
         android:id="@+id/btnchestpress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="체스트프레스"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#4CAF50"
         android:layout_margin="10dp"
-        android:padding="20dp"
-        android:textSize="30sp"
-        android:background="#673AB7"
+        android:elevation="4dp"
+        android:padding="16dp"
         android:layout_marginTop="8dp"
         android:layout_below="@id/btninclinpress" />
 
+    <!-- 바벨로우 버튼 -->
     <Button
         android:id="@+id/btnfly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="펙 덱 플라이"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#4CAF50"
         android:layout_margin="10dp"
-        android:padding="20dp"
-        android:textSize="30sp"
-        android:background="#673AB7"
+        android:elevation="4dp"
+        android:padding="16dp"
         android:layout_marginTop="8dp"
         android:layout_below="@id/btnchestpress" />
 </RelativeLayout>

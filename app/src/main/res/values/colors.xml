@@ -4,6 +4,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background">#F5F9F6</color>
     <color name="primary_text">#1B5E20</color>
+    <color name="plusbtn">#00BCD4</color>
+    <color name="minusbtn">#E91E63</color>
+    <color name="qwer">#4CAF50</color>
+
+
 
     <!-- Card Colors - Green Gradient Theme -->
     <color name="card_healthcare">#2E7D32</color>

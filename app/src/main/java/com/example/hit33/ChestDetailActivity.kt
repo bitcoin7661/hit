@@ -27,7 +27,7 @@ class ChestDetailActivity : AppCompatActivity(), BluetoothLEManager.DataReceiver
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_equipment_detail)
+        setContentView(R.layout.activity_back_detail)
 
         // UI 요소 초기화
         initializeViews()
@@ -50,8 +50,8 @@ class ChestDetailActivity : AppCompatActivity(), BluetoothLEManager.DataReceiver
         tvDistance = findViewById(R.id.tvDistance)
         tvSpeed = findViewById(R.id.tvSpeed)
         tvCount = findViewById(R.id.tvCount)
-        etTargetMinDistance = findViewById(R.id.etTargetMinDistance)
-        etTargetMaxDistance = findViewById(R.id.etTargetMaxDistance)
+//        etTargetMinDistance = findViewById(R.id.etTargetMinDistance)
+//        etTargetMaxDistance = findViewById(R.id.etTargetMaxDistance)
         etTargetCount = findViewById(R.id.etTargetCount)
     }
 

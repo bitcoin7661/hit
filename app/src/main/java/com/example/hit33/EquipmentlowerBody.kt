@@ -21,7 +21,7 @@ class EquipmentlowerBody : AppCompatActivity() {
 
     private fun openInfo(equipment: String) {
         // 선택된 운동 기구에 대한 정보를 보여줄 Activity를 실행
-        val intent = Intent(this, EquipmentDetailActivity::class.java)
+        val intent = Intent(this, EquipmentBackDetailActivity::class.java)
         intent.putExtra("EQUIPMENT_NAME", equipment) // 선택한 운동 기구 이름을 전달
         startActivity(intent) // Activity 실행
     }

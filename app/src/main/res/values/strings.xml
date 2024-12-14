@@ -1,3 +1,11 @@
 <resources>
+    <!-- 기존 문자열 -->
     <string name="app_name">hit33</string>
+
+    <!-- 추가된 문자열 -->
+    <string name="exercise_change_title">운동 현황</string>
+    <string name="exercise_change_title_desc">운동 현황 화면 제목</string>
+    <string name="exercise_change_scroll_desc">운동 변화 데이터를 포함하는 스크롤 영역</string>
+    <string name="track_change_button_text">추이 변화</string>
+    <string name="track_change_button_desc">추이 변화를 확인하는 버튼</string>
 </resources>

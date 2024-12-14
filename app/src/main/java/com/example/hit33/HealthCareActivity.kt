@@ -53,7 +53,7 @@ class HealthCareActivity : AppCompatActivity(), BluetoothLEManager.DataReceiver 
             "가슴" -> Intent(this, EquipmentChest::class.java)
             "등" -> Intent(this, EquipmentBack::class.java)
             "하체" -> Intent(this, EquipmentlowerBody::class.java)
-            else -> Intent(this, EquipmentDetailActivity::class.java)
+            else -> Intent(this, EquipmentBackDetailActivity::class.java)
         }
         intent.putExtra("EQUIPMENT_NAME", part)
         startActivity(intent)

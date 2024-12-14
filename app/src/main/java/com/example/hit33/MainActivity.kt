@@ -4,13 +4,11 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.card.MaterialCardView
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,12 +29,16 @@ class MainActivity : AppCompatActivity() {
             requestPermissions()
         }
 
-        findViewById<MaterialCardView>(R.id.cardHealthCare).setOnClickListener{ openHealthCare() }
-//        findViewById<MaterialCardView>(R.id.cardProfile).setOnClickListener
-//        findViewById<MaterialCardView>(R.id.cardDiet).setOnClickListener
-//        findViewById<MaterialCardView>(R.id.cardPlanner).setOnClickListener
-//        findViewById<MaterialCardView>(R.id.cardEvent).setOnClickListener
+        // 헬스케어 카드 클릭 리스너
+        findViewById<MaterialCardView>(R.id.cardHealthCare).setOnClickListener { openHealthCare() }
 
+        // 플래너 카드 클릭 리스너
+        findViewById<MaterialCardView>(R.id.cardPlanner).setOnClickListener { openPlanner() }
+
+//        findViewById<MaterialCardView>(R.id.cardProfile).setOnClickListener { openProfile() }
+//        findViewById<MaterialCardView>(R.id.cardDiet).setOnClickListener { openDiet() }
+//        findViewById<MaterialCardView>(R.id.cardEvent).setOnClickListener { openEvent() }
+//        findViewById<MaterialCardView>(R.id.cardRecord).setOnClickListener { openRecord() }
     }
 
     private fun hasPermissions(): Boolean {
@@ -76,6 +78,11 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun openPlanner() {
+        val intent = Intent(this, PlannerActivity::class.java)
+        startActivity(intent)
+    }
+
 //    private fun openProfile() {
 //        val intent = Intent(this, ProfileActivity::class.java)
 //        startActivity(intent)
@@ -83,11 +90,6 @@ class MainActivity : AppCompatActivity() {
 //
 //    private fun openDiet() {
 //        val intent = Intent(this, DietActivity::class.java)
-//        startActivity(intent)
-//    }
-//
-//    private fun openPlanner() {
-//        val intent = Intent(this, PlannerActivity::class.java)
 //        startActivity(intent)
 //    }
 //
@@ -101,3 +103,4 @@ class MainActivity : AppCompatActivity() {
 //        startActivity(intent)
 //    }
 }
+

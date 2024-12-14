@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="#3F51B5">
+    android:background="#FFFFFF">
 
 
     <TextView
@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="랫풀다운"
-        android:textSize="40sp"
-        android:textColor="#FFC107"
+        android:textSize="30sp"
+        android:textColor="@color/black"
         android:padding="16dp"
         android:layout_margin="10dp"
         android:gravity="center"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvTitle"
         android:layout_margin="5dp"
-        android:background="#CDDC39"
+        android:background="#4CAF50"
         android:padding="16dp"
         android:text="가동범위: Ncm"
         android:textSize="20sp"
@@ -39,7 +39,7 @@
         android:layout_below="@id/tvSpeed"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        android:background="#4CAF50"
+        android:background="#009688"
         android:inputType="numberDecimal"
         android:padding="16dp"
         android:text="가동범위:30cm"
@@ -50,7 +50,8 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="+"
-        android:textSize="40sp"
+        android:backgroundTint="@color/plusbtn"
+        android:textSize="25sp"
         android:layout_below="@id/btnmoving"
         android:layout_marginTop="10dp"
         android:layout_alignParentStart="true" />
@@ -59,7 +60,8 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="-"
-        android:textSize="40sp"
+        android:textSize="25sp"
+        android:backgroundTint="@color/minusbtn"
         android:layout_toEndOf="@id/btnIncrease"
         android:layout_below="@id/btnmoving"
         android:layout_marginTop="10dp"
@@ -73,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvDistance"
         android:layout_margin="5dp"
-        android:background="#CDDC39"
+        android:background="#8BC34A"
         android:padding="16dp"
         android:text="횟수:N개"
         android:textSize="20sp" />
@@ -86,7 +88,7 @@
         android:layout_below="@id/btnIncrease"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:background="#4CAF50"
+        android:background="#009688"
         android:hint="목표횟수:입력"
         android:inputType="numberDecimal"
         android:padding="16dp"
@@ -99,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvsetcount"
         android:layout_margin="5dp"
-        android:background="#CDDC39"
+        android:background="#8BC34A"
         android:padding="16dp"
         android:text="운동 속도: N초"
         android:textSize="20sp" />
@@ -110,20 +112,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvCount"
         android:layout_margin="5dp"
-        android:background="#CDDC39"
+        android:background="#4CAF50"
         android:padding="16dp"
         android:text="세트 수: N세트"
         android:textSize="20sp" />
 
 
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/btnStart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/etTargetCount"
         android:layout_margin="5dp"
-        android:background="#00796B"
-        android:text="저 장"
+        android:backgroundTint="#8BC34A"
+        android:text="운동 시작"
         android:textSize="30sp" />
 
 
