@@ -47,6 +47,12 @@ class WeekMonthPlannerActivity : AppCompatActivity() {
             val memo = memoEditText.text.toString()
             intent.putExtra("memo", memo)
 
+            // 추가된 기능: 세트 수와 횟수를 SharedPreferences에서 가져와 전달
+            val sets = sharedPreferences.getInt("${lastSelectedDate}_${memo}_sets", 0)
+            val reps = sharedPreferences.getInt("${lastSelectedDate}_${memo}_reps", 0)
+            intent.putExtra("sets", sets)
+            intent.putExtra("reps", reps)
+
             startActivity(intent)
         }
 
@@ -67,6 +73,7 @@ class WeekMonthPlannerActivity : AppCompatActivity() {
         }
     }
 }
+
 
 
 
