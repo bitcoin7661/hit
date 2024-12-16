@@ -1,4 +1,5 @@
-package com.example.hit33
+//BluetoothLEManager.kt
+package com.example.hit33.ble
 
 import android.Manifest
 import android.annotation.SuppressLint

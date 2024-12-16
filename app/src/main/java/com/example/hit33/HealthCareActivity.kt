@@ -1,19 +1,17 @@
+// HealthCareActivity.kt
 package com.example.hit33
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothDevice
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
+import com.example.hit33.ble.BluetoothLEManager
 import com.google.android.material.card.MaterialCardView
 
 class HealthCareActivity : AppCompatActivity(), BluetoothLEManager.DataReceiver {

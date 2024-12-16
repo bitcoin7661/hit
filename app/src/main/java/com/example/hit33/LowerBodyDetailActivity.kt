@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.hit33.ble.BluetoothLEManager
 
 class LowerBodyDetailActivity : AppCompatActivity(), BluetoothLEManager.DataReceiver {
 
