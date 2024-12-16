@@ -1,4 +1,4 @@
-package com.example.hit33
+package com.example.hit33.ble
 
 import android.Manifest
 import android.annotation.SuppressLint
