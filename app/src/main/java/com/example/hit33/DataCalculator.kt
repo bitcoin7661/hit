@@ -15,16 +15,16 @@ class DataCalculator(private val context: Context) {
     private var totalDistance = 0.0
     private var previousSpeed = 0.0
     private val samplingTime = 0.1 // 샘플링 주기 (초 단위)
-    private var targetDistance = 30 // 목표 가동 범위
+    //    private var targetDistance = 30 // 목표 가동 범위
     private lateinit var soundPool: SoundPool
     private var notificationSound: Int = 0
     var onTargetReachedListener: OnTargetReachedListener? = null // 콜백 리스너
 
 
-    // 목표 가동 범위 설정
-    fun setTargetDistance(distance: Int) {
-        targetDistance = distance
-    }
+//    // 목표 가동 범위 설정
+//    fun setTargetDistance(distance: Int) {
+//        targetDistance = distance
+//    }
 
     // Getter 메서드
     fun getMovementCount(): Int {
@@ -32,21 +32,21 @@ class DataCalculator(private val context: Context) {
     }
 
 
-    init {
-        // SoundPool 초기화
-        val audioAttributes = AudioAttributes.Builder()
-            .setUsage(AudioAttributes.USAGE_MEDIA)
-            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-            .build()
-
-        soundPool = SoundPool.Builder()
-            .setMaxStreams(5)
-            .setAudioAttributes(audioAttributes)
-            .build()
-
-        // 사운드 파일 로드
-        notificationSound = soundPool.load(context, R.raw.notification_sound, 1) // 'notification_sound'는 실제 파일 이름
-    }
+//    init {
+//        // SoundPool 초기화
+//        val audioAttributes = AudioAttributes.Builder()
+//            .setUsage(AudioAttributes.USAGE_MEDIA)
+//            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+//            .build()
+//
+//        soundPool = SoundPool.Builder()
+//            .setMaxStreams(5)
+//            .setAudioAttributes(audioAttributes)
+//            .build()
+//
+//        // 사운드 파일 로드
+//        notificationSound = soundPool.load(context, R.raw.notification_sound, 1) // 'notification_sound'는 실제 파일 이름
+//    }
 
 
     /**
@@ -69,11 +69,9 @@ class DataCalculator(private val context: Context) {
 
         // 이동 거리 및 속도 계산
         val distance = calculateDistance(accelX, accelY, accelZ)
-        val speed = calculateSpeed(accelX, accelY, accelZ)
 
         // 포맷팅
         val formattedDistance = String.format("%.2f", distance)
-        val formattedSpeed = String.format("%.2f", speed)
 
         // 운동 횟수 판별
         updateMovementCount(distance)
@@ -81,7 +79,6 @@ class DataCalculator(private val context: Context) {
         // 결과 반환
         return mapOf(
             "distance" to "$formattedDistance cm",
-            "speed" to "$formattedSpeed m/s",
             "reps" to "$movementCount"
         )
     }
@@ -94,19 +91,10 @@ class DataCalculator(private val context: Context) {
         return totalDistance
     }
 
-    // 속도 계산
-    private fun calculateSpeed(accelX: Double, accelY: Double, accelZ: Double): Double {
-        val acceleration = sqrt(accelX * accelX + accelY * accelY + accelZ * accelZ)
-        val newSpeed = previousSpeed + acceleration * samplingTime // v = u + at
-        previousSpeed = newSpeed // 속도 업데이트
-        return newSpeed
-    }
-
     // 운동 횟수 업데이트
     private fun updateMovementCount(currentDistance: Double) {
         if (currentDistance in 50.0..100.0) {
             movementCount++ // 운동 횟수 증가
-            playNotification(1) // 알림 1회 발생
         }
 
         if (movementCount >= targetCount) {
