@@ -23,7 +23,7 @@ class EquipmentBackDetailActivity : AppCompatActivity() {
     private var targetReps: Int = 10 // 목표 횟수
     private var totalDistance: Double = 0.0 // 누적 이동 거리
 
-    private var samplingTime = 0.5 // 샘플링 시간 (초 단위)
+    private var samplingTime = 0.1 // 샘플링 시간 (초 단위)
     private lateinit var mediaPlayer: MediaPlayer // 알림음 재생
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -158,7 +158,7 @@ class EquipmentBackDetailActivity : AppCompatActivity() {
     // 운동 횟수 업데이트
     private fun updateMovementCount(currentDistance: Double) {
         if (currentDistance >= targetDistance) { // 기준 거리 초과 시
-            completedReps++ // 완료된 운동 횟수
+            completedReps++ // 운동 횟수
             tvCount.text = "운동 횟수: ${completedReps}회"
         }
 
