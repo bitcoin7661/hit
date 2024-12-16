@@ -1,8 +1,6 @@
-// app/src/main/java/com/example/hit33/ble/BluetoothScanActivity.kt
 package com.example.hit33.ble
 
 import android.Manifest
-import android.bluetooth.BluetoothDevice
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -12,7 +10,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.lifecycle.viewmodel.compose.viewModel
 
 class BluetoothScanActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
