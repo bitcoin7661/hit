@@ -22,6 +22,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // 스플래시 테마에서 메인 테마로 전환
+        setTheme(R.style.Theme_Hit33)
+
         setContentView(R.layout.activity_main)
 
         // 권한 체크 및 요청
