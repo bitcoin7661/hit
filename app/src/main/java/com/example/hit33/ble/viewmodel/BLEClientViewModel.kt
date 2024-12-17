@@ -9,6 +9,7 @@ import androidx.annotation.RequiresPermission
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.hit33.ble.BLEManager
 import com.example.hit33.ble.BLEScanner
 import com.example.hit33.ble.BLEDeviceConnection
 import com.example.hit33.ble.PERMISSION_BLUETOOTH_CONNECT
@@ -123,6 +124,15 @@ class BLEClientViewModel(private val application: Application): AndroidViewModel
                 bleScanner.stopScanning()
             }
         }
+    }
+    // FOX-03 2nd commit
+    private val bleManager = BLEManager.getInstance(application)
+
+    val connectionState = bleManager.connectionState
+    val receivedData = bleManager.receivedData
+
+    fun sendCommand(command: String) {
+        bleManager.writeData(command)
     }
 }
 

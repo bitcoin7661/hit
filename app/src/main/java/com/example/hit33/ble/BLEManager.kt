@@ -36,6 +36,15 @@ class BLEManager(private val context: Context) {
         // Nordic UART Characteristic
         private val CHARACTERISTIC_UUID_RX = UUID.fromString("6E400002-B5A3-F393-E0A9-E50E24DCCA9E") // Write
         private val CHARACTERISTIC_UUID_TX = UUID.fromString("6E400003-B5A3-F393-E0A9-E50E24DCCA9E") // Read/Notify
+
+        @Volatile
+        private var instance: BLEManager? = null
+
+        fun getInstance(context: Context): BLEManager {
+            return instance ?: synchronized(this) {
+                instance ?: BLEManager(context.applicationContext).also { instance = it }
+            }
+        }
     }
 
     private val gattCallback = object : BluetoothGattCallback() {
