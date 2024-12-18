@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 배경 색상 설정 -->
+    <item android:drawable="@color/white" />
+
+    <!-- 로고 아이콘을 크게 표시 -->
+    <item>
+        <scale
+            android:scaleGravity="center"
+            android:scaleWidth="150%"
+            android:scaleHeight="150%">
+            <bitmap
+                android:src="@drawable/bigapplogo"
+                android:gravity="center" />
+        </scale>
+    </item>
+</layer-list>

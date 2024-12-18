@@ -12,14 +12,33 @@
         android:background="@android:color/transparent"
         android:elevation="0dp">
 
-        <TextView
+        <!-- LinearLayout을 사용하여 이미지와 텍스트를 수평 정렬 -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HIT"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="@color/primary_text"
-            android:layout_margin="24dp"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_margin="24dp">
+
+            <!-- 이미지 추가 -->
+            <ImageView
+                android:id="@+id/applogo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/applogo"
+                android:contentDescription="App Logo"
+                android:layout_marginEnd="8dp" />
+
+            <!-- 텍스트 추가 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HIT"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text" />
+        </LinearLayout>
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
