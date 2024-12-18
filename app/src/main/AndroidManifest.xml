@@ -26,7 +26,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/bigapplogo"
-        android:label="Hit33"
+        android:label=""
         android:roundIcon="@drawable/bigapplogo"
         android:supportsRtl="true"
         android:theme="@style/SplashTheme"
