@@ -40,10 +40,12 @@ class MainActivity : AppCompatActivity() {
         findViewById<MaterialCardView>(R.id.cardPlanner).setOnClickListener { openPlanner() }
 
 //        findViewById<MaterialCardView>(R.id.cardProfile).setOnClickListener { openProfile() }
-//        findViewById<MaterialCardView>(R.id.cardDiet).setOnClickListener { openDiet() }
+          findViewById<MaterialCardView>(R.id.cardiet).setOnClickListener { openDiet() }
 //        findViewById<MaterialCardView>(R.id.cardEvent).setOnClickListener { openEvent() }
 //        findViewById<MaterialCardView>(R.id.cardRecord).setOnClickListener { openRecord() }
     }
+
+
 
     private fun hasPermissions(): Boolean {
         return REQUIRED_PERMISSIONS.all { permission ->
@@ -92,10 +94,10 @@ class MainActivity : AppCompatActivity() {
 //        startActivity(intent)
 //    }
 //
-//    private fun openDiet() {
-//        val intent = Intent(this, DietActivity::class.java)
-//        startActivity(intent)
-//    }
+    private fun openDiet() {
+        val intent = Intent(this, DietActivity::class.java)
+        startActivity(intent)
+    }
 //
 //    private fun openEvent() {
 //        val intent = Intent(this, EventActivity::class.java)

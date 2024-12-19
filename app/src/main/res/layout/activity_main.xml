@@ -59,7 +59,7 @@
                 app:cardCornerRadius="24dp"
                 app:cardElevation="2dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/cardProfile"
+                app:layout_constraintEnd_toStartOf="@id/cardiet"
                 app:layout_constraintTop_toTopOf="parent"
                 app:cardBackgroundColor="@color/card_healthcare">
 
@@ -87,7 +87,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardProfile"
+                android:id="@+id/cardiet"
                 android:layout_width="0dp"
                 android:layout_height="160dp"
                 android:layout_margin="8dp"
@@ -101,28 +101,28 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center">
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:src="@drawable/ic_profile"
+                        android:src="@drawable/ic_diet"
                         app:tint="@color/white" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="프로필"
+                        android:layout_marginTop="8dp"
+                        android:text="식단"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="16sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardDiet"
+                android:id="@+id/cardprofile"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_margin="8dp"
@@ -141,13 +141,13 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/ic_diet"
+                        android:src="@drawable/ic_profile"
                          app:tint="@color/white" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="식단"
+                        android:text="프로필"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:layout_marginStart="16dp"/>
@@ -159,19 +159,19 @@
                 android:layout_width="0dp"
                 android:layout_height="140dp"
                 android:layout_margin="8dp"
+                app:cardBackgroundColor="@color/card_planner"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="2dp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/cardEvent"
-                app:layout_constraintTop_toBottomOf="@id/cardDiet"
-                app:cardBackgroundColor="@color/card_planner">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardprofile">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center">
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -182,10 +182,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="플래너"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="16sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -194,19 +194,19 @@
                 android:layout_width="0dp"
                 android:layout_height="140dp"
                 android:layout_margin="8dp"
+                app:cardBackgroundColor="@color/card_event"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="2dp"
-                app:layout_constraintStart_toEndOf="@id/cardPlanner"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardDiet"
-                app:cardBackgroundColor="@color/card_event">
+                app:layout_constraintStart_toEndOf="@id/cardPlanner"
+                app:layout_constraintTop_toBottomOf="@+id/cardprofile">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center">
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -217,10 +217,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="이벤트"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="16sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
