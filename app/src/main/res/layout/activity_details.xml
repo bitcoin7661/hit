@@ -1,0 +1,101 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- BMI 계산 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BMI 계산"
+            android:textSize="20sp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/et_height"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginBottom="8dp"
+            android:hint="키 입력 (cm)"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/et_weight"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginBottom="8dp"
+            android:hint="몸무게 입력 (kg)"
+            android:inputType="numberDecimal" />
+
+        <Button
+            android:id="@+id/btn_calculate_bmi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BMI 계산"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tv_bmi_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BMI 결과가 여기에 표시됩니다."
+            android:layout_marginBottom="16dp" />
+
+        <!-- 걸음 수 데이터 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="걸음 수 데이터"
+            android:textSize="20sp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tv_step_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="걸음 수: 데이터 없음"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 약 복용 알림 설정 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="복용 중인 약 알림"
+            android:textSize="20sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/et_medication_name"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginBottom="8dp"
+            android:hint="약 이름 입력"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/et_alarm_time"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:hint="알람 시간 입력 (HH:mm)"
+            android:inputType="time" />
+
+        <Button
+            android:id="@+id/btn_set_alarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="알람 설정"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+</ScrollView>

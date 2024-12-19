@@ -39,8 +39,11 @@ class MainActivity : AppCompatActivity() {
         // 플래너 카드 클릭 리스너
         findViewById<MaterialCardView>(R.id.cardPlanner).setOnClickListener { openPlanner() }
 
+
+        // 프로필 카드 클릭 리스너
+        findViewById<MaterialCardView>(R.id.cardProfile).setOnClickListener { openProfile() }
 //        findViewById<MaterialCardView>(R.id.cardProfile).setOnClickListener { openProfile() }
-          findViewById<MaterialCardView>(R.id.cardiet).setOnClickListener { openDiet() }
+        findViewById<MaterialCardView>(R.id.cardiet).setOnClickListener { openDiet() }
 //        findViewById<MaterialCardView>(R.id.cardEvent).setOnClickListener { openEvent() }
 //        findViewById<MaterialCardView>(R.id.cardRecord).setOnClickListener { openRecord() }
     }
@@ -89,24 +92,14 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-//    private fun openProfile() {
-//        val intent = Intent(this, ProfileActivity::class.java)
-//        startActivity(intent)
-//    }
-//
+    private fun openProfile() {
+        val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+    }
+
     private fun openDiet() {
         val intent = Intent(this, DietActivity::class.java)
         startActivity(intent)
     }
-//
-//    private fun openEvent() {
-//        val intent = Intent(this, EventActivity::class.java)
-//        startActivity(intent)
-//    }
-//
-//    private fun openRecord() {
-//        val intent = Intent(this, RecordActivity::class.java)
-//        startActivity(intent)
-//    }
 }
 
