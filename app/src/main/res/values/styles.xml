@@ -1,6 +1,11 @@
 <resources>
     <!-- 스플래시 화면 스타일 -->
-    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="android:windowBackground">@drawable/bigapplogo</item>
+    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- 배경색 설정 -->
+        <item name="android:windowBackground">@android:color/white</item>
+        <!-- 상태 표시줄 색상 설정 -->
+        <item name="android:statusBarColor">@android:color/white</item>
+        <!-- 상태 표시줄 아이콘 색상 설정 (흰 배경일 경우 어두운 아이콘 사용) -->
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>

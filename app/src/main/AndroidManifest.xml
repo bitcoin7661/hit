@@ -33,7 +33,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/bigapplogo"
-        android:label="Hit33"
+        android:label=""
         android:roundIcon="@drawable/bigapplogo"
         android:supportsRtl="true"
         android:theme="@style/SplashTheme"
@@ -90,7 +90,13 @@
             android:name=".EquipmentlowerBody"
             android:exported="false" />
 
-        <!-- BLE 스캔 관련 Activity -->
+        <activity android:name=".HealthCareActivity" />
+        <activity android:name=".EquipmentBack" />
+        <activity android:name=".EquipmentBackDetailActivity" />
+        <activity android:name=".EquipmentChest" />
+        <activity android:name=".EquipmentlowerBody" />
+        <activity android:name=".DietActivity" />
+
         <activity
             android:name=".ble.BluetoothScanActivity"
             android:exported="false"

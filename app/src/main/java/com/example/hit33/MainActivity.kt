@@ -39,9 +39,16 @@ class MainActivity : AppCompatActivity() {
         // 플래너 카드 클릭 리스너
         findViewById<MaterialCardView>(R.id.cardPlanner).setOnClickListener { openPlanner() }
 
+
         // 프로필 카드 클릭 리스너
         findViewById<MaterialCardView>(R.id.cardProfile).setOnClickListener { openProfile() }
+//        findViewById<MaterialCardView>(R.id.cardProfile).setOnClickListener { openProfile() }
+        findViewById<MaterialCardView>(R.id.cardiet).setOnClickListener { openDiet() }
+//        findViewById<MaterialCardView>(R.id.cardEvent).setOnClickListener { openEvent() }
+//        findViewById<MaterialCardView>(R.id.cardRecord).setOnClickListener { openRecord() }
     }
+
+
 
     private fun hasPermissions(): Boolean {
         return REQUIRED_PERMISSIONS.all { permission ->
@@ -87,6 +94,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun openProfile() {
         val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun openDiet() {
+        val intent = Intent(this, DietActivity::class.java)
         startActivity(intent)
     }
 }
