@@ -55,7 +55,7 @@ fun ScanningScreen(
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            items(foundDevices) { device ->
+            items(foundDevices.filter { device -> !device.name.isNullOrEmpty() }) { device ->
                 DeviceItem(
                     deviceName = device.name,
                     selectDevice = { selectDevice(device) }
