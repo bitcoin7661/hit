@@ -15,6 +15,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="BMI 계산"
+            android:textColor="@color/black"
+            android:backgroundTint="#4CAF50"
             android:textSize="20sp"
             android:layout_marginBottom="16dp" />
 
@@ -24,6 +26,8 @@
             android:layout_height="58dp"
             android:layout_marginBottom="8dp"
             android:hint="키 입력 (cm)"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
             android:inputType="numberDecimal" />
 
         <EditText
@@ -32,6 +36,8 @@
             android:layout_height="57dp"
             android:layout_marginBottom="8dp"
             android:hint="몸무게 입력 (kg)"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
             android:inputType="numberDecimal" />
 
         <Button
@@ -39,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="BMI 계산"
+            android:backgroundTint="#4CAF50"
             android:layout_marginBottom="8dp" />
 
         <TextView
@@ -46,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="BMI 결과가 여기에 표시됩니다."
+            android:textColor="@color/black"
             android:layout_marginBottom="16dp" />
 
         <!-- 걸음 수 데이터 -->
@@ -53,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="걸음 수 데이터"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_marginBottom="16dp" />
 
@@ -61,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="걸음 수: 데이터 없음"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginBottom="16dp" />
 
@@ -69,6 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="복용 중인 약 알림"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp" />
@@ -79,6 +90,8 @@
             android:layout_height="58dp"
             android:layout_marginBottom="8dp"
             android:hint="약 이름 입력"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
             android:inputType="text" />
 
         <EditText
@@ -87,6 +100,8 @@
             android:layout_height="60dp"
             android:layout_marginBottom="8dp"
             android:hint="알람 시간 입력 (HH:mm)"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
             android:inputType="time" />
 
         <Button
@@ -94,6 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="알람 설정"
+            android:backgroundTint="#4CAF50"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp" />
 

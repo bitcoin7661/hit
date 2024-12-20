@@ -90,6 +90,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="저장"
+        android:textColor="@color/white"
+        android:backgroundTint="#4CAF50"
         android:layout_marginTop="20dp" />
 
     <!-- 상세정보 버튼 -->
@@ -98,5 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="상세정보"
+        android:backgroundTint="#4CAF50"
+        android:textColor="@color/white"
         android:layout_marginTop="12dp" />
 </LinearLayout>
