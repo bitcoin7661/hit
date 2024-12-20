@@ -90,11 +90,6 @@
             android:name=".EquipmentlowerBody"
             android:exported="false" />
 
-        <activity android:name=".HealthCareActivity" />
-        <activity android:name=".EquipmentBack" />
-        <activity android:name=".EquipmentBackDetailActivity" />
-        <activity android:name=".EquipmentChest" />
-        <activity android:name=".EquipmentlowerBody" />
         <activity android:name=".DietActivity" />
 
         <activity
