@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.hit33">
-
     <!-- Bluetooth 권한 -->
     <uses-permission
         android:name="android.permission.BLUETOOTH"
@@ -21,11 +20,10 @@
         android:name="android.permission.BLUETOOTH_SCAN"
         android:usesPermissionFlags="neverForLocation"
         tools:targetApi="s" />
+
     <uses-feature
         android:name="android.hardware.bluetooth_le"
-        android:required="true" />
-
-    <!-- 알림 권한 (Android 13 이상 필수) -->
+        android:required="true" /> <!-- 알림 권한 (Android 13 이상 필수) -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
@@ -46,11 +44,10 @@
             android:theme="@style/Theme.Hit33">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 주요 Activity들 -->
+        </activity> <!-- 주요 Activity들 -->
         <activity
             android:name=".DetailsActivity"
             android:exported="false" />
@@ -75,8 +72,12 @@
         <activity
             android:name=".HealthCareActivity"
             android:exported="false" />
-
-        <!-- 운동 관련 세부 Activity들 -->
+        <activity
+            android:name=".EventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AttendanceActivity"
+            android:exported="false" /> <!-- 운동 관련 세부 Activity들 -->
         <activity
             android:name=".EquipmentBack"
             android:exported="false" />
@@ -88,17 +89,16 @@
             android:exported="false" />
         <activity
             android:name=".EquipmentlowerBody"
+            android:exported="false" /> <!-- BLE 스캔 관련 Activity -->
+        <activity
+            android:name=".PointShopActivity"
             android:exported="false" />
 
-        <!-- BLE 스캔 관련 Activity -->
         <activity
             android:name=".ble.BluetoothScanActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
-
-        <!-- 알람 Receiver 등록 -->
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" /> <!-- 알람 Receiver 등록 -->
         <receiver android:name=".AlarmReceiver" />
-
     </application>
 
 </manifest>
