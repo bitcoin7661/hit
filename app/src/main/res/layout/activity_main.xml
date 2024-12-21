@@ -194,7 +194,7 @@
                 android:layout_width="0dp"
                 android:layout_height="140dp"
                 android:layout_margin="8dp"
-                app:cardBackgroundColor="@color/card_event"
+                app:cardBackgroundColor="@color/card_planner"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="2dp"
                 app:layout_constraintEnd_toEndOf="parent"

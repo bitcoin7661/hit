@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // 프로필 카드 클릭 리스너
-
+        findViewById<MaterialCardView>(R.id.cardprofile).setOnClickListener { openProfile() }
 //        findViewById<MaterialCardView>(R.id.cardProfile).setOnClickListener { openProfile() }
         findViewById<MaterialCardView>(R.id.cardiet).setOnClickListener { openDiet() }
 //        findViewById<MaterialCardView>(R.id.cardEvent).setOnClickListener { openEvent() }

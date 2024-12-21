@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="주간/월간 플래너"
+            android:textColor="@color/black"
             android:backgroundTint="#A5D6A7"
             android:layout_marginTop="16dp" />
 
@@ -40,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="기록 / 변화"
+            android:textColor="@color/black"
             android:backgroundTint="#A5D6A7"
             android:layout_marginTop="16dp" />
 
@@ -48,6 +50,7 @@
             android:id="@+id/communityButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_marginTop="16dp"
             android:backgroundTint="#A5D6A7"
             android:text="개인 커뮤니티" />
