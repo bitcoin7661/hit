@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="프로필 정보"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp" />
@@ -21,19 +22,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="이름"
+        android:textColor="@color/black"
         android:layout_marginBottom="4dp" />
 
     <EditText
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="62dp"
-        android:hint="이름을 입력하세요" />
+        android:hint="이름을 입력하세요"
+        android:backgroundTint="@color/black"
+        android:textColorHint="@color/black"
+        />
 
     <!-- 생년월일 입력 -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="생년월일"
+        android:textColor="@color/black"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="4dp" />
 
@@ -41,13 +47,16 @@
         android:id="@+id/et_birthdate"
         android:layout_width="match_parent"
         android:layout_height="68dp"
-        android:hint="YYYY-MM-DD 형식으로 입력" />
+        android:backgroundTint="@color/black"
+        android:hint="YYYY-MM-DD 형식으로 입력"
+        android:textColorHint="@color/black"/>
 
     <!-- 키와 몸무게 입력 -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="키 (cm)와 몸무게 (kg)"
+        android:textColor="@color/black"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="4dp" />
     <LinearLayout
@@ -61,14 +70,18 @@
             android:layout_height="58dp"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:hint="키 입력" />
+            android:hint="키 입력"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"/>
 
         <EditText
             android:id="@+id/et_weight"
             android:layout_width="0dp"
             android:layout_height="58dp"
             android:layout_weight="1"
-            android:hint="몸무게 입력" />
+            android:hint="몸무게 입력"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"/>
     </LinearLayout>
 
     <!-- 저장 버튼 -->
@@ -77,6 +90,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="저장"
+        android:textColor="@color/white"
+        android:backgroundTint="#4CAF50"
         android:layout_marginTop="20dp" />
 
     <!-- 상세정보 버튼 -->
@@ -85,5 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="상세정보"
+        android:backgroundTint="#4CAF50"
+        android:textColor="@color/white"
         android:layout_marginTop="12dp" />
 </LinearLayout>

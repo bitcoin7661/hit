@@ -8,6 +8,12 @@
     <color name="minusbtn">#E91E63</color>
     <color name="qwer">#4CAF50</color>
 
+    <!-- colors.xml -->
+    <color name="button_save_color">#4CAF50</color>
+    <color name="button_details_color">#FF5722</color>
+    <color name="button_text_color">#FFFFFF</color>
+
+
 
 
     <!-- Card Colors - Green Gradient Theme -->

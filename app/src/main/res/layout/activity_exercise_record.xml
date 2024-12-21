@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:text="운동 기록"
             android:textSize="24sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_gravity="center"
@@ -40,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="날짜"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:padding="8dp" />
 
@@ -50,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="메모"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:padding="8dp" />
         </LinearLayout>
@@ -60,10 +63,12 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:hint="세트"
+            android:textColorHint="@color/black"
+
             android:inputType="number"
             android:textSize="16sp"
             android:padding="12dp"
-            android:backgroundTint="#CCCCCC"
+            android:backgroundTint="@color/black"
             android:layout_marginBottom="8dp" />
 
         <!-- 횟수 입력 -->
@@ -72,10 +77,11 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:hint="횟수"
+            android:textColorHint="@color/black"
             android:inputType="number"
             android:textSize="16sp"
             android:padding="12dp"
-            android:backgroundTint="#CCCCCC"
+            android:backgroundTint="@color/black"
             android:layout_marginBottom="8dp" />
 
         <!-- 중량 입력 -->
@@ -84,10 +90,11 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:hint="중량 (kg)"
+            android:textColorHint="@color/black"
             android:inputType="numberDecimal"
             android:textSize="16sp"
             android:padding="12dp"
-            android:backgroundTint="#CCCCCC"
+            android:backgroundTint="@color/black"
             android:layout_marginBottom="8dp" />
 
         <!-- 운동 시간 입력 -->
@@ -96,10 +103,11 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:hint="운동 시간 (분)"
+            android:textColorHint="@color/black"
             android:inputType="number"
             android:textSize="16sp"
             android:padding="12dp"
-            android:backgroundTint="#CCCCCC"
+            android:backgroundTint="@color/black"
             android:layout_marginBottom="16dp" />
 
     </LinearLayout>

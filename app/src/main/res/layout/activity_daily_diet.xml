@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
+
             android:layout_marginBottom="16dp">
 
             <!-- 이전 날짜 버튼 -->
@@ -37,6 +38,7 @@
                 android:text="2024-12-19"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_marginHorizontal="16dp"
                 android:gravity="center" />
 
